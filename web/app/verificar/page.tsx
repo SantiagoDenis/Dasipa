@@ -1,0 +1,3 @@
+'use client';import {useState} from 'react';import {PageHead,Notice} from '@/components/dasipa-ui';import {api} from '@/lib/client';
+export default function Verify(){const [message,setMessage]=useState(''),[error,setError]=useState('');return <><PageHead title="Verificá tu correo"/>{message?<Notice>{message} <a href="/cuenta">Ingresar</a></Notice>:<button className="primary" onClick={async()=>{try{const r=await api('/api/verify',{token:new URLSearchParams(location.search).get('token')});setMessage(r.message)}catch(e:any){setError(e.message)}}}>Confirmar correo</button>}{error&&<Notice error>{error}</Notice>}</>}
+
