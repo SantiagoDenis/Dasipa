@@ -1,0 +1,4 @@
+import {PageHead} from '@/components/dasipa-ui';import {InquiryForm} from '@/components/inquiry-form';import {company} from '@/content/company';
+export const metadata={title:'Contacto'};
+export default function Contact(){return <><PageHead title="Estamos para escucharte." eyebrow="CONTACTO">Elegí el área indicada y contanos cómo podemos ayudarte.</PageHead><div className="sidegrid section"><div className="card"><InquiryForm/></div><aside><span className="eyebrow">LABORATORIO DASIPA</span><h2 style={{fontSize:'2rem'}}>Conversemos.</h2><p>{company.address}<br/>{company.postcode} · Buenos Aires</p><p><a href="tel:+541145680496">(011) 4568-0496</a><br/><a href="tel:+541145680628">(011) 4568-0628</a></p><div className="notice">Para consultas sobre productos, indicá su nombre o presentación. Evitá compartir información médica personal en el formulario.</div><a href="/droguerias" className="button outline">Acceso para droguerías ↗</a></aside></div></>}
+
