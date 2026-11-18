@@ -1,0 +1,2 @@
+import Link from 'next/link';import {PageHead} from '@/components/dasipa-ui';
+export default function NotFound(){return <div className="container section narrow"><PageHead eyebrow="404" title="No encontramos esta página" text="El enlace puede haber cambiado. Podés volver al catálogo o contactarnos para encontrar lo que necesitás."/><div className="actions"><Link className="button" href="/productos">Explorar productos</Link><Link className="button secondary" href="/contacto">Contactar al equipo</Link></div></div>}
