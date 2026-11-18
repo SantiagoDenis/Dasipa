@@ -1,6 +1,6 @@
 'use client';
 import {useEffect,useState} from 'react';
-export async function api(path:string,body?:unknown,method?:string){const response=await fetch(path,{method:method||(body===undefined?'GET':'POST'),headers:body===undefined?{}:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});const data=await response.json();if(!response.ok)throw new Error(data.error||'No pudimos completar la operación.');return data;}
+export async function api<T=any>(path:string,body?:unknown,method?:string):Promise<T>{const response=await fetch(path,{method:method||(body===undefined?'GET':'POST'),headers:body===undefined?{}:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});const data:any=await response.json();if(!response.ok)throw new Error(data.error||'No pudimos completar la operación.');return data as T;}
 export function useData<T>(path:string){const [data,setData]=useState<T|null>(null),[error,setError]=useState(''),[loading,setLoading]=useState(true);function reload(){setLoading(true);api(path).then(setData).catch(e=>setError(e.message)).finally(()=>setLoading(false));}useEffect(()=>{let active=true;setLoading(true);setError('');api(path).then(d=>{if(active)setData(d)}).catch(e=>{if(active)setError(e.message)}).finally(()=>{if(active)setLoading(false)});return()=>{active=false}},[path]);return {data,error,loading,reload};}
 export function formValues(form:HTMLFormElement){return Object.fromEntries(new FormData(form).entries())}
 export function requestKey(){return crypto.randomUUID()}
