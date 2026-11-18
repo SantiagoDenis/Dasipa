@@ -1,0 +1,856 @@
+{
+  "version": 1,
+  "date": "2026-11-18",
+  "site": "https://dasipa.atlassian.net",
+  "project": "SCRUM",
+  "repository": "https://github.com/SantiagoDenis/Dasipa",
+  "status": "Creado y verificado en Jira: 6 épicas, 17 historias, 12 tareas y 69 dependencias.",
+  "requirements": [
+    {
+      "id": "R01",
+      "title": "Orientar a cada público",
+      "description": "La portada debe explicar la oferta y ofrecer recorridos claros para droguerías, compradores de cosméticos y empresas interesadas en marca propia."
+    },
+    {
+      "id": "R02",
+      "title": "Promover calidad verificable",
+      "description": "Mostrar certificaciones vigentes en inicio y página propia, con norma, organismo, alcance, fechas y PDF; no presentar la certificación del sistema como certificación individual del producto."
+    },
+    {
+      "id": "R03",
+      "title": "Comunicar capacidad y trayectoria",
+      "description": "Publicar historia resumida, instalaciones y capacidades con textos, datos e imágenes propios aprobados por Dasipa."
+    },
+    {
+      "id": "R04",
+      "title": "Catálogo navegable",
+      "description": "Buscar productos por nombre y filtrar por línea/categoría y presentación; contemplar resultados vacíos y conservar filtros al volver."
+    },
+    {
+      "id": "R05",
+      "title": "Ficha de producto completa",
+      "description": "Cada producto tendrá URL, fotos, categoría, presentaciones/SKU, documentación y contenido revisado; acción comercial según canal autorizado."
+    },
+    {
+      "id": "R06",
+      "title": "Venta B2B controlada",
+      "description": "Permitir solicitar alta de droguería y aprobación administrativa; mantener precios/condiciones privados cuando corresponda y verificar permisos en servidor."
+    },
+    {
+      "id": "R07",
+      "title": "Cotizaciones B2B",
+      "description": "Droguerías aprobadas podrán reunir SKU y cantidades, enviar una solicitud persistente y recibir referencia y estado. No implica cobrar ni confirmar stock automáticamente."
+    },
+    {
+      "id": "R08",
+      "title": "Compra cosmética",
+      "description": "Permitir carrito y checkout únicamente para SKU aprobados para venta pública, con precios, disponibilidad y condiciones claras."
+    },
+    {
+      "id": "R09",
+      "title": "Envíos, pagos y pedidos",
+      "description": "Calcular entrega según reglas acordadas; integrar una pasarela, confirmar pago mediante eventos verificados, evitar duplicados y ofrecer seguimiento de pedido."
+    },
+    {
+      "id": "R10",
+      "title": "Fabricación para terceros",
+      "description": "Explicar servicio, proceso y alcance confirmado; captar solicitudes con tipo de producto, volumen estimado y necesidades de marca/envase."
+    },
+    {
+      "id": "R11",
+      "title": "Atención segmentada",
+      "description": "Diferenciar consultas comerciales, de fabricación y de calidad; preservar contexto y ofrecer confirmación, protección antispam y tratamiento adecuado de datos."
+    },
+    {
+      "id": "R12",
+      "title": "Administración",
+      "description": "Administradores autorizados podrán mantener catálogo, precios, stock, documentación, publicaciones, altas B2B y estados de solicitudes/pedidos sin editar código."
+    },
+    {
+      "id": "R13",
+      "title": "Experiencia accesible y adaptable",
+      "description": "Interfaz en español, utilizable con teclado y a 360, 768 y 1440 px sin pérdida de contenido; objetivo WCAG 2.2 AA en flujos principales."
+    },
+    {
+      "id": "R14",
+      "title": "Visibilidad y migración",
+      "description": "URLs estables, metadatos, sitemap y redirecciones de URLs antiguas; bloquear indexación de entornos de prueba y contenido privado."
+    },
+    {
+      "id": "R15",
+      "title": "Operación segura y mantenible",
+      "description": "Permisos en servidor, secretos fuera del repositorio, minimización de datos, copias/restauración, CI, entorno de prueba, monitorización y rollback documentados."
+    },
+    {
+      "id": "R16",
+      "title": "Medición del resultado",
+      "description": "Medir búsquedas, vistas de producto, consultas B2B y fabricación, altas, carrito y compras sin datos personales en eventos; definir línea base antes de fijar metas."
+    }
+  ],
+  "epics": [
+    {
+      "id": "E01",
+      "summary": "Preparación comercial, contenido y diseño",
+      "goal": "Resolver las decisiones que condicionan una implementación correcta y preparar los diseños y datos.",
+      "jiraKey": "SCRUM-5",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-5"
+    },
+    {
+      "id": "E02",
+      "summary": "Sitio institucional, certificaciones y captación",
+      "goal": "Explicar la propuesta de Dasipa, demostrar confianza y convertir interés en consultas pertinentes.",
+      "jiraKey": "SCRUM-6",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-6"
+    },
+    {
+      "id": "E03",
+      "summary": "Catálogo de productos administrable",
+      "goal": "Permitir descubrir y evaluar productos usando información comercial y técnica validada.",
+      "jiraKey": "SCRUM-7",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-7"
+    },
+    {
+      "id": "E04",
+      "summary": "Canal comercial para droguerías",
+      "goal": "Captar y validar droguerías y gestionar cotizaciones sin habilitar venta pública de productos restringidos.",
+      "jiraKey": "SCRUM-8",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-8"
+    },
+    {
+      "id": "E05",
+      "summary": "Tienda cosmética y gestión de pedidos",
+      "goal": "Completar compra de productos habilitados para público con disponibilidad, entrega, pago y seguimiento.",
+      "jiraKey": "SCRUM-9",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-9"
+    },
+    {
+      "id": "E06",
+      "summary": "Calidad técnica, medición y lanzamiento",
+      "goal": "Publicar y operar el sitio con controles de calidad, trazabilidad, visibilidad y recuperación.",
+      "jiraKey": "SCRUM-10",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-10"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "T01",
+      "epic": "E01",
+      "type": "Task",
+      "summary": "Validar catálogo, canales y condiciones comerciales",
+      "requirements": [
+        "R05",
+        "R06",
+        "R08",
+        "R09"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [],
+      "acceptance": [
+        "Existe una matriz por SKU con categoría, presentación, canal autorizado y disponibilidad; las dudas quedan excluidas de compra hasta resolverse.",
+        "Dasipa confirma responsables, criterios de aprobación B2B, mínimos/cantidades, visibilidad de precios y circuito de cotización.",
+        "Se documentan decisiones pendientes de tienda: moneda, precios/impuestos, stock, cobro, entrega, cambios y devoluciones; tienen responsable y bloquean publicación cuando aplique."
+      ],
+      "jiraKey": "SCRUM-11",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-11"
+    },
+    {
+      "id": "T02",
+      "epic": "E01",
+      "type": "Task",
+      "summary": "Revisar textos técnicos, certificados y material visual",
+      "requirements": [
+        "R02",
+        "R03",
+        "R05"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [],
+      "acceptance": [
+        "El responsable técnico valida indicaciones, precauciones, clasificación y presentaciones; se resuelve la discrepancia 33 g/25 g detectada en cloruro de magnesio.",
+        "Se registra norma, emisor, alcance y vigencia de cada certificado y su archivo autorizado.",
+        "Se reúne inventario de textos e imágenes con autorización de uso y aprobación; no se inventan beneficios, capacidades ni sellos."
+      ],
+      "jiraKey": "SCRUM-12",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-12"
+    },
+    {
+      "id": "T03",
+      "epic": "E01",
+      "type": "Task",
+      "summary": "Diseñar navegación y prototipos de los recorridos principales",
+      "requirements": [
+        "R01",
+        "R04",
+        "R05",
+        "R07",
+        "R08",
+        "R13"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T01"
+      ],
+      "acceptance": [
+        "Mapa del sitio separa catálogo medicinal, cosmética pública, droguerías, certificaciones y fabricación para terceros.",
+        "Prototipos de inicio, listado, ficha, cotización y checkout incluyen móvil/escritorio y estados de carga, vacío, error y éxito.",
+        "Se define sistema visual de color, tipografía, botones y formularios con contraste verificable y revisión del PO."
+      ],
+      "jiraKey": "SCRUM-13",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-13"
+    },
+    {
+      "id": "T04",
+      "epic": "E01",
+      "type": "Task",
+      "summary": "Definir arquitectura, modelo de datos e integraciones",
+      "requirements": [
+        "R05",
+        "R12",
+        "R15"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T01"
+      ],
+      "acceptance": [
+        "Decisión documentada de plataforma/CMS, hosting, persistencia y estrategia de frontend/backend con costos y restricciones.",
+        "Modelo incluye producto/SKU, canal, precio, stock, documentos, cuenta B2B, cotización, pedido y pago.",
+        "Se definen roles, contratos de API, fuente de stock y límites transaccionales; pasarela/envíos quedan seleccionados o identificados como bloqueantes de B.",
+        "No se asume ERP, sincronización externa ni proveedor de pago sin confirmación."
+      ],
+      "jiraKey": "SCRUM-14",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-14"
+    },
+    {
+      "id": "T05",
+      "epic": "E01",
+      "type": "Task",
+      "summary": "Preparar repositorio, CI y entorno de pruebas",
+      "requirements": [
+        "R15"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T04"
+      ],
+      "acceptance": [
+        "README permite ejecutar el proyecto; configuración de ejemplo no contiene secretos.",
+        "Cada PR ejecuta compilación y verificaciones pertinentes; rama principal y revisiones quedan configuradas según permisos disponibles.",
+        "Hay despliegue de prueba con datos ficticios y sin indexación, y procedimiento de despliegue documentado.",
+        "Se documenta convención de claves Jira en ramas, commits y PR; la conexión GitHub-Jira se verifica cuando los administradores la habiliten."
+      ],
+      "jiraKey": "SCRUM-15",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-15"
+    },
+    {
+      "id": "T06",
+      "epic": "E02",
+      "type": "Story",
+      "summary": "Entender la oferta de Dasipa desde la portada",
+      "requirements": [
+        "R01",
+        "R02",
+        "R03",
+        "R13"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T02",
+        "T03",
+        "T05"
+      ],
+      "acceptance": [
+        "Como visitante identifico productos medicinales, cosmética y fabricación para terceros con acciones diferenciadas.",
+        "Inicio muestra certificación verificada con acceso al detalle y una selección de líneas/productos publicados.",
+        "Los enlaces llegan a destinos útiles; el banner y navegación no recortan contenido a 360, 768 y 1440 px."
+      ],
+      "jiraKey": "SCRUM-16",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-16"
+    },
+    {
+      "id": "T07",
+      "epic": "E02",
+      "type": "Story",
+      "summary": "Consultar certificaciones y alcance de calidad",
+      "requirements": [
+        "R02"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T02",
+        "T05"
+      ],
+      "acceptance": [
+        "Como comprador accedo desde inicio y navegación a norma, emisor, alcance, vigencia y certificado descargable.",
+        "Los PDFs se abren/descargan y tienen nombre y formato identificables.",
+        "Certificados vencidos o retirados no se promocionan como vigentes; se diferencia gestión de calidad de certificación de productos."
+      ],
+      "jiraKey": "SCRUM-17",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-17"
+    },
+    {
+      "id": "T08",
+      "epic": "E02",
+      "type": "Story",
+      "summary": "Conocer trayectoria, instalaciones y capacidades",
+      "requirements": [
+        "R03"
+      ],
+      "release": "A",
+      "priority": "P1",
+      "depends": [
+        "T02",
+        "T03",
+        "T05"
+      ],
+      "acceptance": [
+        "Como potencial cliente consulto información resumida de empresa, instalaciones y capacidades aprobadas.",
+        "Fotos tienen textos alternativos útiles y todo dato cuantitativo conserva fuente/aprobación.",
+        "Historia y misión no desplazan las acciones comerciales; la página enlaza catálogo y fabricación."
+      ],
+      "jiraKey": "SCRUM-18",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-18"
+    },
+    {
+      "id": "T09",
+      "epic": "E02",
+      "type": "Story",
+      "summary": "Solicitar presupuesto de fabricación para terceros",
+      "requirements": [
+        "R10",
+        "R11"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T01",
+        "T02",
+        "T03",
+        "T05"
+      ],
+      "acceptance": [
+        "Como empresa entiendo el alcance real del servicio y los pasos para solicitar presupuesto.",
+        "Formulario solicita contacto, empresa, tipo de producto, volumen estimado y necesidades de marca/envase; valida campos y explica uso de datos.",
+        "Solicitud se persiste con referencia, se notifica al responsable configurado y muestra confirmación; un fallo de notificación queda registrado para reintento.",
+        "No se promete diseño de fórmulas, mínimos o plazos que Dasipa no haya confirmado."
+      ],
+      "jiraKey": "SCRUM-19",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-19"
+    },
+    {
+      "id": "T10",
+      "epic": "E02",
+      "type": "Story",
+      "summary": "Contactar al área adecuada con contexto",
+      "requirements": [
+        "R11"
+      ],
+      "release": "A",
+      "priority": "P1",
+      "depends": [
+        "T03",
+        "T05"
+      ],
+      "acceptance": [
+        "Como visitante elijo ventas, fabricación o consultas de calidad y veo datos de contacto aprobados.",
+        "Desde una ficha el producto llega identificado al formulario, sin obligarme a escribirlo otra vez.",
+        "Validación, protección antispam, persistencia y confirmación funcionan; errores no se presentan como envío exitoso.",
+        "El formulario no solicita datos clínicos innecesarios ni muestra datos personales de otros remitentes."
+      ],
+      "jiraKey": "SCRUM-20",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-20"
+    },
+    {
+      "id": "T11",
+      "epic": "E03",
+      "type": "Story",
+      "summary": "Administrar catálogo y documentación",
+      "requirements": [
+        "R05",
+        "R12",
+        "R15"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T01",
+        "T02",
+        "T04",
+        "T05"
+      ],
+      "acceptance": [
+        "Como administrador creo/edito/despublico productos y SKU con presentaciones, categorías, canal y archivos.",
+        "Existe borrador/publicado y solo se publica información aprobada; documentos e imágenes tienen validación de formato/tamaño.",
+        "Usuarios sin rol no pueden modificar datos por UI ni API; los cambios relevantes registran autor y fecha.",
+        "Un producto retirado conserva referencias históricas de solicitudes y pedidos."
+      ],
+      "jiraKey": "SCRUM-21",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-21"
+    },
+    {
+      "id": "T12",
+      "epic": "E03",
+      "type": "Story",
+      "summary": "Buscar y filtrar productos",
+      "requirements": [
+        "R04",
+        "R13"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T03",
+        "T11"
+      ],
+      "acceptance": [
+        "Como visitante busco por nombre sin diferencia de mayúsculas o tildes y combino filtros de línea/categoría y presentación.",
+        "Se muestra cantidad de resultados y opción de limpiar filtros; las búsquedas sin resultados ofrecen salida útil.",
+        "Volver desde una ficha conserva consulta/filtros; solo aparecen productos publicados.",
+        "El catálogo permite navegar resultados en móvil y teclado sin cargar imágenes completas innecesariamente."
+      ],
+      "jiraKey": "SCRUM-22",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-22"
+    },
+    {
+      "id": "T13",
+      "epic": "E03",
+      "type": "Story",
+      "summary": "Consultar ficha y elegir una presentación",
+      "requirements": [
+        "R05",
+        "R06",
+        "R08"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T02",
+        "T03",
+        "T11"
+      ],
+      "acceptance": [
+        "Como comprador veo foto, nombre, descripción validada, presentaciones y documentación de un producto en URL propia.",
+        "Seleccionar presentación identifica un SKU inequívoco y muestra únicamente la acción habilitada para mi canal.",
+        "Productos restringidos nunca exponen compra pública; productos no disponibles muestran un estado comprensible.",
+        "La compra cosmética se habilita cuando B esté operativa; en A se ofrece consulta sin simular un checkout."
+      ],
+      "jiraKey": "SCRUM-23",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-23"
+    },
+    {
+      "id": "T14",
+      "epic": "E03",
+      "type": "Task",
+      "summary": "Migrar el catálogo y los archivos aprobados",
+      "requirements": [
+        "R02",
+        "R03",
+        "R05",
+        "R12"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T01",
+        "T02",
+        "T11"
+      ],
+      "acceptance": [
+        "Se importa el conjunto de productos aprobado y se compara el total/SKU con el inventario de origen.",
+        "No hay duplicados, archivos rotos ni fichas publicadas con campos obligatorios incompletos.",
+        "Una revisión por muestreo cubre todas las categorías y una revisión completa cubre permisos por canal.",
+        "El importador permite repetir o revertir la carga de prueba sin duplicar registros."
+      ],
+      "jiraKey": "SCRUM-24",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-24"
+    },
+    {
+      "id": "T15",
+      "epic": "E04",
+      "type": "Story",
+      "summary": "Solicitar alta como droguería",
+      "requirements": [
+        "R06"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T01",
+        "T04",
+        "T05"
+      ],
+      "acceptance": [
+        "Como representante registro empresa, identificador fiscal, contacto y los datos de validación acordados, con aviso de tratamiento de datos.",
+        "Se confirma titularidad del correo mediante enlace con vencimiento y la cuenta queda pendiente de aprobación.",
+        "Se contemplan duplicados y fallos; una cuenta pendiente no accede a condiciones comerciales privadas.",
+        "Los documentos necesarios, si se requieren, solo son accesibles al titular y personal autorizado."
+      ],
+      "jiraKey": "SCRUM-25",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-25"
+    },
+    {
+      "id": "T16",
+      "epic": "E04",
+      "type": "Story",
+      "summary": "Aprobar y administrar accesos de droguerías",
+      "requirements": [
+        "R06",
+        "R12",
+        "R15"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T15"
+      ],
+      "acceptance": [
+        "Como administrador apruebo, rechazo o suspendo una solicitud y registro motivo, autor y fecha.",
+        "El solicitante recibe el resultado y solo una cuenta aprobada obtiene el rol comercial.",
+        "Inicio/cierre de sesión y recuperación de acceso no revelan información de otras cuentas.",
+        "Suspender una cuenta impide nuevas operaciones comerciales incluso con una sesión previa."
+      ],
+      "jiraKey": "SCRUM-26",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-26"
+    },
+    {
+      "id": "T17",
+      "epic": "E04",
+      "type": "Story",
+      "summary": "Armar y enviar una cotización multiproducto",
+      "requirements": [
+        "R06",
+        "R07"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T13",
+        "T16"
+      ],
+      "acceptance": [
+        "Como droguería aprobada agrego SKU/cantidades, modifico líneas y veo el resumen antes de enviarlo.",
+        "El servidor revalida rol, SKU, canal, mínimos y cantidades; rechaza acceso directo no autorizado.",
+        "Enviar crea una solicitud única con referencia e instantánea de las líneas; reintentar no genera duplicados.",
+        "La confirmación distingue solicitud de cotización de pedido aceptado; el responsable comercial recibe aviso recuperable ante fallos."
+      ],
+      "jiraKey": "SCRUM-27",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-27"
+    },
+    {
+      "id": "T18",
+      "epic": "E04",
+      "type": "Story",
+      "summary": "Consultar y gestionar el estado de las cotizaciones",
+      "requirements": [
+        "R07",
+        "R12"
+      ],
+      "release": "A",
+      "priority": "P1",
+      "depends": [
+        "T17"
+      ],
+      "acceptance": [
+        "Como droguería veo solo mis solicitudes, detalle y estados: recibida, en revisión, respondida y cerrada.",
+        "Como comercial autorizado filtro solicitudes y actualizo estado con historial.",
+        "La respuesta comercial queda registrada con condiciones y vigencia cuando corresponda; las notas internas no son visibles al cliente.",
+        "Las pruebas incluyen intento de leer/modificar solicitudes de otra empresa."
+      ],
+      "jiraKey": "SCRUM-28",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-28"
+    },
+    {
+      "id": "T19",
+      "epic": "E05",
+      "type": "Story",
+      "summary": "Comprar cosméticos desde un carrito",
+      "requirements": [
+        "R08"
+      ],
+      "release": "B",
+      "priority": "P0",
+      "depends": [
+        "T01",
+        "T13"
+      ],
+      "acceptance": [
+        "Como consumidor agrego solo SKU habilitados al carrito y cambio cantidades o elimino líneas.",
+        "El total y disponibilidad se recalculan en servidor; no se confía en precios enviados por el navegador.",
+        "El carrito conserva su contenido al navegar y muestra cambios de precio o indisponibilidad antes de continuar.",
+        "Intentos de agregar productos restringidos por API son rechazados."
+      ],
+      "jiraKey": "SCRUM-29",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-29"
+    },
+    {
+      "id": "T20",
+      "epic": "E05",
+      "type": "Story",
+      "summary": "Elegir entrega y revisar el total final",
+      "requirements": [
+        "R09"
+      ],
+      "release": "B",
+      "priority": "P0",
+      "depends": [
+        "T01",
+        "T19"
+      ],
+      "acceptance": [
+        "Como comprador ingreso datos mínimos de contacto/entrega y accedo a las opciones disponibles según código postal.",
+        "El costo, impuestos aplicables y total final se muestran antes del pago junto a las condiciones aprobadas.",
+        "Direcciones fuera de cobertura tienen un mensaje explícito; no se permite pagar con costo de envío indeterminado.",
+        "Las reglas de entrega configuradas se verifican con casos de cobertura y límites acordados."
+      ],
+      "jiraKey": "SCRUM-30",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-30"
+    },
+    {
+      "id": "T21",
+      "epic": "E05",
+      "type": "Story",
+      "summary": "Pagar y recibir una confirmación confiable",
+      "requirements": [
+        "R09",
+        "R15"
+      ],
+      "release": "B",
+      "priority": "P0",
+      "depends": [
+        "T04",
+        "T20"
+      ],
+      "acceptance": [
+        "Como comprador pago mediante la pasarela elegida sin que Dasipa almacene datos de tarjeta.",
+        "El pedido se confirma solo mediante notificación verificada del proveedor; retorno del navegador no basta.",
+        "Eventos repetidos o fuera de orden no duplican cobros/pedidos; se prueban aprobado, pendiente, rechazo y cancelación.",
+        "Se define reserva/liberación de stock y se prueba concurrencia sobre la última unidad; el pedido registra precios y envío acordados."
+      ],
+      "jiraKey": "SCRUM-31",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-31"
+    },
+    {
+      "id": "T22",
+      "epic": "E05",
+      "type": "Story",
+      "summary": "Preparar pedidos y mantener precios y stock",
+      "requirements": [
+        "R09",
+        "R12"
+      ],
+      "release": "B",
+      "priority": "P0",
+      "depends": [
+        "T11",
+        "T21"
+      ],
+      "acceptance": [
+        "Como operador autorizado veo pedidos pagados y cambio estado a preparación, enviado o cancelado según transiciones válidas.",
+        "Puedo mantener precios y stock por SKU con historial y sin alterar importes históricos de pedidos.",
+        "Cancelación y devolución registran su motivo y resultado de reintegro; nunca marcan reintegrado sin confirmación del medio de pago.",
+        "Un pedido no pagado no se trata como listo para despacho."
+      ],
+      "jiraKey": "SCRUM-32",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-32"
+    },
+    {
+      "id": "T23",
+      "epic": "E05",
+      "type": "Story",
+      "summary": "Seguir la compra y consultar condiciones",
+      "requirements": [
+        "R09",
+        "R11"
+      ],
+      "release": "B",
+      "priority": "P1",
+      "depends": [
+        "T21",
+        "T22"
+      ],
+      "acceptance": [
+        "Como comprador recibo confirmación con referencia, detalle, total y canal de asistencia.",
+        "Consulto estado y seguimiento mediante acceso autenticado o enlace seguro; conocer el número de pedido no permite ver datos personales.",
+        "Veo condiciones aprobadas de entrega, cambios/devoluciones y contacto antes y después de comprar.",
+        "Fallos en notificaciones quedan registrados y pueden reintentarse sin crear pedidos nuevos."
+      ],
+      "jiraKey": "SCRUM-33",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-33"
+    },
+    {
+      "id": "T24",
+      "epic": "E06",
+      "type": "Task",
+      "summary": "Implementar SEO y redirecciones del sitio anterior",
+      "requirements": [
+        "R14"
+      ],
+      "release": "A",
+      "priority": "P1",
+      "depends": [
+        "T06",
+        "T07",
+        "T13"
+      ],
+      "acceptance": [
+        "Inicio, categorías y fichas tienen título/descripción propios, canonical y HTML indexable.",
+        "Se publica sitemap de páginas públicas y robots acorde al entorno; administración y cuentas no se indexan.",
+        "Inventario de URLs antiguas tiene destino equivalente o tratamiento explícito; redirecciones permanentes no forman ciclos.",
+        "Se verifican 404, enlaces, vistas previas sociales y datos estructurados pertinentes sin inventar precios/reseñas."
+      ],
+      "jiraKey": "SCRUM-34",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-34"
+    },
+    {
+      "id": "T25",
+      "epic": "E06",
+      "type": "Task",
+      "summary": "Instrumentar métricas de consultas y compras",
+      "requirements": [
+        "R16"
+      ],
+      "release": "A",
+      "priority": "P1",
+      "depends": [
+        "T06",
+        "T09",
+        "T17"
+      ],
+      "acceptance": [
+        "Plan de eventos cubre búsqueda, ficha, solicitud B2B, alta y fabricación; al habilitar B incorpora carrito y compra.",
+        "Eventos de conversión se disparan después de éxito confirmado y tienen mecanismo contra duplicados.",
+        "No se envían nombres, correos, identificadores fiscales ni texto libre a analítica; consentimiento se implementa según la política definida.",
+        "Se dispone de un tablero con línea base; objetivos de conversión quedan para validar con datos reales."
+      ],
+      "jiraKey": "SCRUM-35",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-35"
+    },
+    {
+      "id": "T26",
+      "epic": "E06",
+      "type": "Task",
+      "summary": "Verificar accesibilidad, adaptación y rendimiento",
+      "requirements": [
+        "R13",
+        "R15"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T06",
+        "T07",
+        "T12",
+        "T13",
+        "T17"
+      ],
+      "acceptance": [
+        "Se verifica navegación por teclado, foco, etiquetas, errores y contraste en recorridos principales con objetivo WCAG 2.2 AA.",
+        "Casos a 360, 768 y 1440 px y zoom 200% no pierden controles ni texto; se prueban navegadores acordados.",
+        "Pruebas repetibles de rendimiento en móvil documentan entorno, páginas y resultados; presupuesto inicial propuesto LCP <=2.5 s y CLS <=0.1.",
+        "Se registran defectos y se corrigen bloqueantes; después del lanzamiento se mide INP de campo cuando haya datos."
+      ],
+      "jiraKey": "SCRUM-36",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-36"
+    },
+    {
+      "id": "T27",
+      "epic": "E06",
+      "type": "Task",
+      "summary": "Configurar seguridad, privacidad y recuperación",
+      "requirements": [
+        "R06",
+        "R08",
+        "R11",
+        "R15"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T04",
+        "T05"
+      ],
+      "acceptance": [
+        "Matriz de permisos se prueba en servidor; no hay acceso cruzado entre empresas ni escritura administrativa anónima.",
+        "HTTPS, gestión de secretos, límites de solicitudes, validación de cargas y dependencias están revisados sin fallos críticos conocidos abiertos.",
+        "Se define retención de datos, política de privacidad y acceso operativo; logs excluyen secretos y datos sensibles innecesarios.",
+        "Se realiza restauración de respaldo en entorno aislado y se documentan alertas, responsable e instrucciones de incidente."
+      ],
+      "jiraKey": "SCRUM-37",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-37"
+    },
+    {
+      "id": "T28",
+      "epic": "E06",
+      "type": "Task",
+      "summary": "Validar y publicar la entrega A",
+      "requirements": [
+        "R01",
+        "R02",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R10",
+        "R11",
+        "R14",
+        "R15",
+        "R16"
+      ],
+      "release": "A",
+      "priority": "P0",
+      "depends": [
+        "T08",
+        "T10",
+        "T14",
+        "T18",
+        "T24",
+        "T25",
+        "T26",
+        "T27"
+      ],
+      "acceptance": [
+        "El PO revisa en pruebas inicio, certificados, catálogo, alta B2B, cotización y formularios con contenido aprobado.",
+        "Los flujos críticos pasan y no quedan defectos bloqueantes; manual de administración y capacitación están entregados.",
+        "Plan de dominio/despliegue, respaldo y rollback está ensayado; se obtiene aprobación operativa antes de producción.",
+        "Después del despliegue se comprueban URLs, formularios y notificaciones; la tienda pública no anuncia pago hasta B."
+      ],
+      "jiraKey": "SCRUM-38",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-38"
+    },
+    {
+      "id": "T29",
+      "epic": "E06",
+      "type": "Task",
+      "summary": "Validar y habilitar la entrega B de tienda cosmética",
+      "requirements": [
+        "R08",
+        "R09",
+        "R12",
+        "R13",
+        "R15",
+        "R16"
+      ],
+      "release": "B",
+      "priority": "P0",
+      "depends": [
+        "T23",
+        "T28"
+      ],
+      "acceptance": [
+        "Productos, precios, stock, logística, condiciones y pasarela productiva tienen validación de sus responsables.",
+        "Pruebas integrales cubren compra, pago rechazado/pendiente, eventos duplicados, concurrencia de stock, cancelación y reintegro.",
+        "Se repiten pruebas de accesibilidad, seguridad y rendimiento sobre carrito/checkout y se verifica analítica de compra.",
+        "Se ensayan activación/retroceso y soporte; la aprobación operativa habilita producción sin perder pedidos existentes."
+      ],
+      "jiraKey": "SCRUM-39",
+      "jiraUrl": "https://dasipa.atlassian.net/browse/SCRUM-39"
+    }
+  ]
+}
