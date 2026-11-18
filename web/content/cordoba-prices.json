@@ -1,0 +1,414 @@
+{
+  "source": "LISTA CORDOBA.pdf",
+  "date": "2026-09-08",
+  "currency": "ARS",
+  "taxIncluded": false,
+  "rows": [
+    {
+      "sku": "D092-001-146",
+      "description": "ACEITE DE ALMENDRAS PUROx30 ML",
+      "netCents": 131575,
+      "unitsPerPack": 24,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-147",
+      "description": "ACEITE DE ALMENDRAS PUROx50 ML",
+      "netCents": 186010,
+      "unitsPerPack": 24,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-148",
+      "description": "ACEITE DE RICINO PURO x 30 ML",
+      "netCents": 94525,
+      "unitsPerPack": 24,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-002",
+      "description": "ACIDO BORICO x 25 G",
+      "netCents": 20045,
+      "unitsPerPack": 25,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-058",
+      "description": "AGUA BLANCA x 250 Cc",
+      "netCents": 130150,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-088",
+      "description": "AGUA D`ALIBOUR x 100 Cc",
+      "netCents": 49970,
+      "unitsPerPack": 24,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-053",
+      "description": "AGUA D`ALIBOUR x 250 Cc",
+      "netCents": 84550,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-059",
+      "description": "AGUA OXIGENADA 10 Vol x 100cc",
+      "netCents": 30590,
+      "unitsPerPack": 24,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-060",
+      "description": "AGUA OXIGENADA 10 Vol x 250 cc",
+      "netCents": 56715,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-061",
+      "description": "AGUA OXIGENADA 10 Vol x 500 cc",
+      "netCents": 83125,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-123",
+      "description": "AGUA OXIGENADA 10 Vol x1000 cc",
+      "netCents": 121600,
+      "unitsPerPack": 6,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-089",
+      "description": "ALCOHOL BORICADO x 100 Cc",
+      "netCents": 52250,
+      "unitsPerPack": 24,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-057",
+      "description": "BICARB.DE SODIO POTE x 250 G",
+      "netCents": 143925,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-009",
+      "description": "BICARBONATO DE SODIO x   25 G",
+      "netCents": 19950,
+      "unitsPerPack": 25,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-030",
+      "description": "BICARB.DE SODIO SOBRE X 100 GS",
+      "netCents": 37810,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-122",
+      "description": "BICARBONATO DE SODIO x 100 EST",
+      "netCents": 55860,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-011",
+      "description": "BICARBONATO DE SODIO x 250 EST",
+      "netCents": 94430,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-056",
+      "description": "CLOR DE MAGNESIO FRASCO x 33 G",
+      "netCents": 51300,
+      "unitsPerPack": 24,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-129",
+      "description": "CLOR. DE MAGNESIO SOBRE x 33 G",
+      "netCents": 24700,
+      "unitsPerPack": 25,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-017",
+      "description": "CLORURO DE MAGNESIO x 1000 G",
+      "netCents": 472150,
+      "unitsPerPack": 6,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-109",
+      "description": "CLOROXILENOL x  270 Cc.",
+      "netCents": 477565,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-124",
+      "description": "CLOROXILENOL x 1000 Cc.",
+      "netCents": 735490,
+      "unitsPerPack": 6,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-072",
+      "description": "CREMA BASE HIDROSOLUBLE x1000G",
+      "netCents": 700815,
+      "unitsPerPack": 6,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-069",
+      "description": "CREMA OXIDANTE 20 Vol x 100cc",
+      "netCents": 61275,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-118",
+      "description": "CREMA OXIDANTE 30 Vol x 100cc",
+      "netCents": 61275,
+      "unitsPerPack": 12,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-097",
+      "description": "DIADERMINA (E. AMONIO) x1000G",
+      "netCents": 554800,
+      "unitsPerPack": 6,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-119",
+      "description": "DIADERMINA x 60 G",
+      "netCents": 88350,
+      "unitsPerPack": 24,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-130",
+      "description": "GEL BASE x   500 CC",
+      "netCents": 140125,
+      "unitsPerPack": 28,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-131",
+      "description": "GEL BASE x 1000 CC",
+      "netCents": 252320,
+      "unitsPerPack": 6,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-132",
+      "description": "GEL BASE x 3000 CC",
+      "netCents": 538080,
+      "unitsPerPack": 1,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-133",
+      "description": "GEL BASE x 5000 CC",
+      "netCents": 702810,
+      "unitsPerPack": 1,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-149",
+      "description": "GLICERINA FA VII x  100 G",
+      "netCents": 78090,
+      "unitsPerPack": 24,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-018",
+      "description": "GLICERINA PURA x 1000 G",
+      "netCents": 484500,
+      "unitsPerPack": 6,
+      "page": 1
+    },
+    {
+      "sku": "D092-001-120",
+      "description": "GLUCOSA FRASCO x 75 G",
+      "netCents": 81890,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-127",
+      "description": "GLUCOSA SOBRE x 75 G",
+      "netCents": 47310,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-044",
+      "description": "LIMONADA ROGE ADULTO x 80 G",
+      "netCents": 148485,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-054",
+      "description": "LINIMENTO OLEO CALCAREO x250cc",
+      "netCents": 128535,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-055",
+      "description": "LINIMENTO OLEO CALCAREO x500cc",
+      "netCents": 223440,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-063",
+      "description": "LINIMENTO OLEO CALCAREOx1000cc",
+      "netCents": 410495,
+      "unitsPerPack": 6,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-150",
+      "description": "PASTA AL AGUA x 50 G",
+      "netCents": 91960,
+      "unitsPerPack": 24,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-082",
+      "description": "PASTA LASSAR x     50 G",
+      "netCents": 109440,
+      "unitsPerPack": 24,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-111",
+      "description": "PASTA LASSAR x   120 G",
+      "netCents": 152950,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-083",
+      "description": "PASTA LASSAR x 1000 G",
+      "netCents": 1008900,
+      "unitsPerPack": 6,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-025",
+      "description": "SOLUCION FISIOLOGICA x 100 Cc",
+      "netCents": 45980,
+      "unitsPerPack": 24,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-098",
+      "description": "SULFATIAZOL TALQUERA x 4 G",
+      "netCents": 136800,
+      "unitsPerPack": 48,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-029",
+      "description": "SULFATO DE MAGNESIO x 25 G",
+      "netCents": 21090,
+      "unitsPerPack": 25,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-034",
+      "description": "TALCO MENTOLADO x 100 G",
+      "netCents": 162545,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-051",
+      "description": "VASEL. LIQ. MEDICINAL x 125 Cc",
+      "netCents": 137465,
+      "unitsPerPack": 24,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-039",
+      "description": "VASEL. LIQ. MEDICINAL x 250 Cc",
+      "netCents": 241775,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-040",
+      "description": "VASEL. LIQ. MEDICINAL x 500 Cc",
+      "netCents": 417050,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-038",
+      "description": "VASEL. LIQ. MEDICINAL x 1000Cc",
+      "netCents": 785650,
+      "unitsPerPack": 6,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-041",
+      "description": "VASELINA SOLIDA MED. x    60 G",
+      "netCents": 110010,
+      "unitsPerPack": 24,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-126",
+      "description": "VASELINA SOLIDA MED. x   250 G",
+      "netCents": 382850,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D092-001-042",
+      "description": "VASELINA SOLIDA MED. x 1000 G",
+      "netCents": 1096680,
+      "unitsPerPack": 6,
+      "page": 2
+    },
+    {
+      "sku": "D090-003-010",
+      "description": "MANTECA DE CACAO x 3.5G x 2OU",
+      "netCents": 1677200,
+      "unitsPerPack": 1,
+      "page": 2
+    },
+    {
+      "sku": "D090-003-007",
+      "description": "C.ORDEÑE c/ALOE + VIT x 120",
+      "netCents": 99465,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D090-003-008",
+      "description": "C.ORDEÑE c/ALOE + VIT x 250",
+      "netCents": 183493,
+      "unitsPerPack": 12,
+      "page": 2
+    },
+    {
+      "sku": "D090-003-009",
+      "description": "C.ORDEÑE c/ALOE + VIT x 500",
+      "netCents": 289940,
+      "unitsPerPack": 6,
+      "page": 2
+    }
+  ]
+}
