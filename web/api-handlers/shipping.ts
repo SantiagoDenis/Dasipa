@@ -1,0 +1,2 @@
+import type {Handler} from '@/lib/model';import {lines,reply} from '@/lib/store';import {shipping} from '@/lib/shipping';
+export const handle:Handler=async({request,url,body})=>{if(url.pathname!=='/api/shipping'||request.method!=='POST')return;const items=await lines(body.lines,'public'),subtotal=items.reduce((sum,x)=>sum+x.quantity*x.price,0);return reply({items,subtotal,...shipping(body.postcode,subtotal)});};
