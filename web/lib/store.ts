@@ -1,5 +1,6 @@
 import {env} from 'cloudflare:workers';
 import type {Product,User,Line} from './model';
+import {cordobaProducts} from '@/content/cordoba-products';
 export const demoMode = () => import.meta.env.DEV || (env as any).DEMO_MODE === 'true';
 let initialized:Promise<void>|undefined;
 function binding():D1Database { const value=(env as any).DB; if(!value)throw new Error('DB binding unavailable'); return value; }
@@ -17,12 +18,20 @@ CREATE TABLE IF NOT EXISTS payment_events(id TEXT PRIMARY KEY,orderId TEXT NOT N
 CREATE TABLE IF NOT EXISTS outbox(id TEXT PRIMARY KEY,recipient TEXT NOT NULL,subject TEXT NOT NULL,body TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'pending',created TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS audit(id TEXT PRIMARY KEY,actor TEXT NOT NULL,action TEXT NOT NULL,entity TEXT NOT NULL,created TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS events(id TEXT PRIMARY KEY,name TEXT NOT NULL,entity TEXT NOT NULL DEFAULT '',created TEXT NOT NULL);`);
-if(demoMode()){
-const modules=import.meta.glob('../content/mock-products.ts',{eager:true}) as Record<string,{mockProducts:Product[]}>;
-for(const mod of Object.values(modules))for(const p of mod.mockProducts){
-await db.prepare('INSERT OR IGNORE INTO products(id,slug,body) VALUES(?,?,?)').bind(p.id,p.slug,JSON.stringify({...p,variants:undefined})).run();
-for(const v of p.variants)await db.prepare('INSERT OR IGNORE INTO skus(id,productId,size,price,stock) VALUES(?,?,?,?,?)').bind(v.id,p.id,v.size,v.price,v.stock).run();
-}}
+await db.exec('CREATE TABLE IF NOT EXISTS catalog_migrations(id TEXT PRIMARY KEY);');
+if(!await db.prepare('SELECT id FROM catalog_migrations WHERE id=?').bind('cordoba-2026-09-08-v1').first()){
+ const statements=[];
+ // Retain historical SKUs and order snapshots; retire only the original demo catalog.
+ const previous=await db.prepare("SELECT id,body FROM products WHERE id GLOB 'demo-[0-9]*'").all<{id:string;body:string}>();
+ for(const old of previous.results){const body=JSON.parse(old.body);body.published=false;body.slug='archivo-'+old.id;statements.push(db.prepare('UPDATE products SET slug=?,body=? WHERE id=?').bind(body.slug,JSON.stringify(body),old.id));}
+ for(const p of cordobaProducts){
+  const metadata={...p,variants:undefined,variantMetadata:Object.fromEntries(p.variants.map(v=>[v.id,{unitsPerPack:v.unitsPerPack,sourceDescription:v.sourceDescription}]))};
+  statements.push(db.prepare('INSERT INTO products(id,slug,body) VALUES(?,?,?)').bind(p.id,p.slug,JSON.stringify(metadata)));
+  for(const v of p.variants)statements.push(db.prepare('INSERT INTO skus(id,productId,size,price,stock) VALUES(?,?,?,?,?)').bind(v.id,p.id,v.size,v.price,demoMode()?v.stock:0));
+ }
+ statements.push(db.prepare('INSERT INTO catalog_migrations VALUES(?)').bind('cordoba-2026-09-08-v1'));
+ await db.batch(statements);
+}
 }
 export async function all<T=any>(sql:string,...args:any[]):Promise<T[]>{return (await (await database()).prepare(sql).bind(...args).all<T>()).results;}
 export async function one<T=any>(sql:string,...args:any[]):Promise<T|null>{return (await database()).prepare(sql).bind(...args).first<T>();}
@@ -40,6 +49,6 @@ export function requireRole(user:User|null,role:'admin'|'b2b'){if(!user)fail('In
 export async function session(userId:string){const raw=id()+id();await run('INSERT INTO sessions(id,userId,expires) VALUES(?,?,?)',await digest(raw),userId,Date.now()+86400000);return 'dasipa_session='+raw+'; Path=/; HttpOnly; SameSite=Lax; Max-Age=86400'+(demoMode()?'':'; Secure');}
 export async function audit(actor:string,action:string,entity:string){await run('INSERT INTO audit VALUES(?,?,?,?,?)',id(),actor,action,entity,now());}
 export async function notify(recipient:string,subject:string,body:unknown){await run('INSERT INTO outbox(id,recipient,subject,body,created) VALUES(?,?,?,?,?)',id(),recipient,subject,JSON.stringify(body),now());}
-export async function products(includeDraft=false):Promise<Product[]>{const rows=await all('SELECT * FROM products');const variants=await all('SELECT * FROM skus');return rows.map(r=>({...JSON.parse(r.body),variants:variants.filter(v=>v.productId===r.id)})).filter(p=>includeDraft||p.published);}
+export async function products(includeDraft=false):Promise<Product[]>{const rows=await all('SELECT * FROM products');const variants=await all('SELECT * FROM skus');return rows.map(r=>{const {variantMetadata,...body}=JSON.parse(r.body);return {...body,variants:variants.filter(v=>v.productId===r.id).map(v=>({...v,...variantMetadata?.[v.id]}))}}).filter(p=>includeDraft||p.published);}
 export async function lines(input:unknown,channel:'public'|'b2b'):Promise<Line[]>{if(!Array.isArray(input)||input.length===0||input.length>50)fail('Agregá entre 1 y 50 productos.');const catalog=await products();const seen=new Set<string>();return input.map(raw=>{if(!raw||typeof raw.sku!=='string'||!Number.isInteger(raw.quantity)||raw.quantity<1||raw.quantity>999||seen.has(raw.sku))fail('Revisá las cantidades y presentaciones.');seen.add(raw.sku);const p=catalog.find(p=>p.variants.some(v=>v.id===raw.sku));if(!p||channel==='public'&&p.line!=='cosmetico')fail('Producto no habilitado para este canal.');const v=p.variants.find(v=>v.id===raw.sku)!;if(channel==='public'&&v.stock<raw.quantity)fail('Stock insuficiente para '+p.name,409);return {sku:v.id,quantity:raw.quantity,name:p.name,size:v.size,price:v.price};});}
 

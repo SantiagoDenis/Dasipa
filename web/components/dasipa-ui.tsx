@@ -3,5 +3,6 @@ export function PageHead({title,eyebrow,text,children}:{title:string;eyebrow?:st
 export function Notice({children,error=false}:{children:ReactNode;error?:boolean}){return <div className={'notice'+(error?' error':'')} role={error?'alert':'status'}>{children}</div>}
 export function Field({name,label,type='text',required=true,defaultValue='',hint}:{name:string;label:string;type?:string;required?:boolean;defaultValue?:string;hint?:string}){return <label className="field">{label}<input name={name} type={type} required={required} defaultValue={defaultValue} maxLength={500} autoComplete={type==='email'?'email':undefined}/>{hint&&<small>{hint}</small>}</label>}
 export function AdminNav(){return <nav className="accountnav" aria-label="Administración"><a href="/admin">Resumen</a><a href="/admin/productos">Productos</a><a href="/admin/droguerias">Droguerías</a><a href="/admin/cotizaciones">Cotizaciones</a><a href="/admin/pedidos">Pedidos</a><a href="/admin/consultas">Consultas</a><a href="/admin/metricas">Métricas</a></nav>}
-export function money(cents:number){return new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0}).format(cents/100)}
+export function money(cents:number){return new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',minimumFractionDigits:2,maximumFractionDigits:2}).format(cents/100)}
+
 
