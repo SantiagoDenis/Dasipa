@@ -1,0 +1,7 @@
+import type {Handler} from '@/lib/model';import {all,one,run,requireRole,reply,text,fail,audit,notify} from '@/lib/store';
+export const handle:Handler=async({request,url,body,user})=>{
+ const admin=url.pathname==='/api/admin/quotes';if(!admin&&url.pathname!=='/api/quotes')return;if(!admin&&request.method!=='GET')return;
+ const u=requireRole(user,admin?'admin':'b2b');
+ if(request.method==='GET'){const rows=await all(admin?'SELECT q.*,u.email FROM quotes q JOIN users u ON u.id=q.userId ORDER BY created DESC':'SELECT id,body,status,response,created FROM quotes WHERE userId=? ORDER BY created DESC',...(admin?[]:[u.id]));return reply({quotes:rows.map(r=>({...r,body:JSON.parse(r.body)}))});}
+ if(admin&&request.method==='PATCH'){const q=await one('SELECT q.*,u.email FROM quotes q JOIN users u ON u.id=q.userId WHERE q.id=?',text(body.id,100));if(!q)fail('Solicitud inexistente.',404);const status=text(body.status,30);if(!['recibida','en_revision','respondida','cerrada'].includes(status))fail('Estado inválido.');const response=typeof body.response==='string'?body.response.trim().slice(0,5000):'';if(status==='respondida'&&!response)fail('Escribí la respuesta para el cliente.');await run('UPDATE quotes SET status=?,response=?,note=? WHERE id=?',status,response,typeof body.note==='string'?body.note.slice(0,5000):'',q.id);await audit(u.id,'quote:'+status,q.id);await notify(q.email,'Actualización de cotización',{id:q.id,status,response});return reply({ok:true});}
+};
