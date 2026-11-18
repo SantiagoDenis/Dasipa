@@ -1,0 +1,9 @@
+web/node_modules/
+web/dist/
+web/.wrangler/
+web/.sites-runtime/
+web/*.tsbuildinfo
+web/.env*
+web/.dev.vars*
+outputs/
+
